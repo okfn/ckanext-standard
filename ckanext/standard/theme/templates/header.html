@@ -1,0 +1,63 @@
+{% ckan_extends %}
+
+{% block header_account_container_content %}
+  {% if c.userobj %}
+    <nav class="account authed" data-module="me" data-me="{{ c.userobj.id }}">
+      <ul class="unstyled">
+        {% block header_account_logged %}
+          {% if 'pages' in g['plugins'] %}
+            <li class="pages account-link">
+              <a href="{{ h.url_for(controller='ckanext.pages.controller:PagesController', action='pages_show', page='') }}" title="{{ _('Pages') }}">
+                <i class="icon-file"></i> {{ _('Pages') }}
+              </a>
+            </li>
+          {% endif %}
+          {% if c.userobj.sysadmin %}
+            <li class="admin account-link">
+              <a href="{{ h.url_for(controller='admin', action='index') }}">{{ _('Admin') }}</a>
+            </li>
+          {% endif %}
+          <li class="user account-link">
+            <a href="{{ h.url_for(controller='user', action='read', id=c.userobj.name) }}">{{ _('Profile') }}</a>
+          </li>
+          {% set new_activities = h.new_activities() %}
+          <li class="notifications account-link {% if new_activities > 0 %}notifications-important{% endif %}">
+            <a href="{{ h.url_for(controller='user', action='dashboard') }}">
+              {{ _('Dashboard') }}
+              <span class="badge">{{ new_activities }}</span><span class="sr-only">{{ _('new activities') }}</span>
+            </a>
+          </li>
+          <li class="settings account-link">
+            <a href="{{ h.url_for(controller='user', action='edit', id=c.userobj.name) }}">{{ _('Settings') }}</a>
+          </li>
+          <li class="logout account-link">
+            <a href="{{ h.url_for('/user/_logout') }}">{{ _('Log out') }}</a>
+          </li>
+        {% endblock %}
+      </ul>
+    </nav>
+  {% else %}
+    {{ super() }}
+  {% endif %}
+
+  <hgroup class="{{ g.header_class }}">
+    {% if g.site_logo %}
+      <a class="logo" href="{{ h.url('home') }}"><img src="{{ h.url_for_static(g.site_logo) }}" alt="" title="{{ g.site_title }} Logo" /> <span class="title">{{ g.site_title }}</span> {% if g.site_description %}<span class="divider">|</span> <span class="description">{{ g.site_description }}</span>{% endif %}</a>
+    {% else %}
+      <a class="logo" href="{{ h.url('home') }}"> {{ g.site_title }} {% if g.site_description %}<span> | {{ g.site_description }}</span>{% endif %}</a>
+    {% endif %}
+  </hgroup>
+
+{% endblock %}
+
+{% block header_site_navigation_tabs %}
+  {{ h.build_nav_main(
+    ('home', _('Home')),
+    ('search', _('Datasets')),
+    ('organizations_index', _('Agencies')),
+    ('about', _('About'))
+  ) }}
+{% endblock %}
+
+{% block header_logo %}{% endblock %}
+{% block header_site_search %}{% endblock %}
