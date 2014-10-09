@@ -1291,6 +1291,12 @@ a.tag:hover {
 .ie8 .site-footer .attribution .ckan-footer-logo {
   background-image: url(../img/ckan-logo-footer-small.png);
 }
+.site-footer .lang-select label {
+  visibility: hidden;
+}
+.site-footer .repo-info {
+  text-align: right;
+}
 .homepage .site-search .btn-search,
 .search-form .search-input.search-giant button {
   background-color: #f39823;
