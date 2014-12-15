@@ -12,6 +12,9 @@
               </a>
             </li>
           {% endif %}
+            <li class="tour account-link">
+              <a href="/?tour=true" id="start_tour_link" data-module="demo_tour" data-module-controller="{{ c.controller }}">{{ _('Start Tour') }}</a>
+            </li>
           {% if c.userobj.sysadmin %}
             <li class="admin account-link">
               <a href="{{ h.url_for(controller='admin', action='index') }}">{{ _('Admin') }}</a>

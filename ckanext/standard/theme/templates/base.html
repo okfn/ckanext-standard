@@ -4,11 +4,14 @@
   {{ super() }}
   {% resource 'standard-theme/vendor/open-sans-fontface/open-sans.css' %}
   {% resource 'standard-theme/vendor/jquery-ui/themes/smoothness/jquery-ui.css' %}
+  {% resource 'standard-theme/vendor/intro.js-1.0.0/introjs.css' %}
   {% resource 'standard-theme/css/theme.css' %}
 {% endblock %}
+
 
 {% block scripts %}
   {{ super() }}
   {% resource 'standard-theme/vendor/jquery-ui/jquery-ui.js' %}
   {% resource 'standard-theme/js/theme.js' %}
+  {% resource 'standard-theme/vendor/intro.js-1.0.0/intro.js' %}
 {% endblock %}

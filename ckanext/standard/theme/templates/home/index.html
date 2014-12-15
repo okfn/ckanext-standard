@@ -90,3 +90,8 @@
     </section>
   </div>
 {% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  {% resource 'standard-theme/js/ckan-demo-index.js' %}
+{% endblock %}
