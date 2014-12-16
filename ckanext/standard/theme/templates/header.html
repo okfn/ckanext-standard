@@ -5,6 +5,9 @@
     <nav class="account authed" data-module="me" data-me="{{ c.userobj.id }}">
       <ul class="unstyled">
         {% block header_account_logged %}
+          <li class="tour account-link">
+            <a href="/?tour=true" id="start_tour_link" data-module="demo_tour" data-module-controller="{{ c.controller }}">{{ _('Start Tour') }}</a>
+          </li>
           {% if 'pages' in g['plugins'] %}
             <li class="pages account-link">
               <a href="{{ h.url_for(controller='ckanext.pages.controller:PagesController', action='pages_show', page='') }}" title="{{ _('Pages') }}">
@@ -12,9 +15,6 @@
               </a>
             </li>
           {% endif %}
-            <li class="tour account-link">
-              <a href="/?tour=true" id="start_tour_link" data-module="demo_tour" data-module-controller="{{ c.controller }}">{{ _('Start Tour') }}</a>
-            </li>
           {% if c.userobj.sysadmin %}
             <li class="admin account-link">
               <a href="{{ h.url_for(controller='admin', action='index') }}">{{ _('Admin') }}</a>
@@ -50,7 +50,13 @@
       <a class="logo" href="{{ h.url('home') }}"> {{ g.site_title }} {% if g.site_description %}<span> | {{ g.site_description }}</span>{% endif %}</a>
     {% endif %}
   </hgroup>
+{% endblock %}
 
+{% block header_account_notlogged %}
+  <li class="tour account-link">
+    <a href="/?tour=true" id="start_tour_link" data-module="demo_tour" data-module-controller="{{ c.controller }}">{{ _('Start Tour') }}</a>
+  </li>
+  {{ super() }}
 {% endblock %}
 
 {% block header_site_navigation_tabs %}
