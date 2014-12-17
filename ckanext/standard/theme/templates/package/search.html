@@ -27,3 +27,8 @@
   {{ super() }}
 
 {% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  {% resource 'standard-theme/js/ckan-demo-package-search.js' %}
+{% endblock %}

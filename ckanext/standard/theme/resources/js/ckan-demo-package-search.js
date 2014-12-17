@@ -6,18 +6,20 @@ ckan.module('demo_tour', function($, _) {
       this.intro = introJs();
       var steps = []
       // Index page steps
-      if (this.options.controller == 'home') {
-        steps = this.home_steps;
-        this.intro.setOption('doneLabel', 'Search').oncomplete(function() {
-          window.location.href = '/dataset?q=Gold+Prices&tour';
+      if (this.options.controller == 'package') {
+        steps = this.search_results_steps;
+        this.intro.setOption('doneLabel', 'Next page').oncomplete(function() {
+          window.location.href = '/dataset/gold-prices';
         });
         this.intro.setOption('showStepNumbers', false);
+        this.intro.setOption('showBullets', false);
       }
       this.intro.setOptions({
         steps: steps
       });
-      this.intro.onchange(this._onchange);
+      // this.intro.onchange(this._onchange);
       this._initDemo(steps);
+
     },
 
     _onchange: function(targetElement) {
@@ -32,21 +34,18 @@ ckan.module('demo_tour', function($, _) {
       if (RegExp('tour', 'gi').test(window.location.search)) {
         this.intro.start();
       }
-      // Intercept click for Start Tour link
-      $(this.el).click($.proxy(function(ev) {
-        ev.preventDefault();
-        this.intro.start();
-      }, this));
+      // Intercept click for Continue Tour link
+      // $(this.el).click($.proxy(function(ev) {
+      //   ev.preventDefault();
+      //   this.intro.start();
+      // }, this));
     },
 
     // Intro steps for the home page.
-    home_steps: [
+    search_results_steps: [
       {
-        intro: "Welcome to the Tour!"
-      },
-      {
-        element: $('.site-search .search-input')[0],
-        intro: "Type a thing and do a search!"
+        element: $('li.dataset-item a')[0],
+        intro: "Let's checkout Gold Prices!"
       }
     ]
   };

@@ -6,7 +6,7 @@
       <ul class="unstyled">
         {% block header_account_logged %}
           <li class="tour account-link">
-            <a href="/?tour=true" id="start_tour_link" data-module="demo_tour" data-module-controller="{{ c.controller }}">{{ _('Start Tour') }}</a>
+            <a href="/?tour" id="start_tour_link" data-module="demo_tour" data-module-controller="{{ c.controller }}">{{ _('Start Tour') }}</a>
           </li>
           {% if 'pages' in g['plugins'] %}
             <li class="pages account-link">
@@ -54,7 +54,7 @@
 
 {% block header_account_notlogged %}
   <li class="tour account-link">
-    <a href="/?tour=true" id="start_tour_link" data-module="demo_tour" data-module-controller="{{ c.controller }}">{{ _('Start Tour') }}</a>
+    <a href="/?tour" id="start_tour_link" data-module="demo_tour" data-module-controller="{{ c.controller }}">{{ _('Start Tour') }}</a>
   </li>
   {{ super() }}
 {% endblock %}
