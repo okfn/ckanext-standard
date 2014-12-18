@@ -19,7 +19,6 @@ ckan.module('demo_tour', function($, _) {
       });
       // this.intro.onchange(this._onchange);
       this._initDemo(steps);
-
     },
 
     _onchange: function(targetElement) {
@@ -34,11 +33,9 @@ ckan.module('demo_tour', function($, _) {
       if (RegExp('tour', 'gi').test(window.location.search)) {
         this.intro.start();
       }
-      // Intercept click for Continue Tour link
-      // $(this.el).click($.proxy(function(ev) {
-      //   ev.preventDefault();
-      //   this.intro.start();
-      // }, this));
+      // Add Continue Tour link for package search
+      var continue_link = $('<li class="account-link"><a href="/dataset?q=Gold+Prices&tour">Continue Tour</a></li>');
+      continue_link.insertAfter(this.el.parent());
     },
 
     // Intro steps for the home page.
