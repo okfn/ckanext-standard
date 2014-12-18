@@ -9,7 +9,7 @@ ckan.module('demo_tour', function($, _) {
       if (this.options.controller == 'home') {
         steps = this.home_steps;
         this.intro.setOption('doneLabel', 'Search').oncomplete(function() {
-          window.location.href = '/dataset?q=Gold+Prices&tour';
+          window.location.href = '/dataset?q=CCTV&tour';
         });
         this.intro.setOption('showStepNumbers', false);
       }
@@ -23,7 +23,7 @@ ckan.module('demo_tour', function($, _) {
     _onchange: function(targetElement) {
       // If we're on the search step, pre-fill the input
       if (targetElement.id == 'index_search') {
-        $(targetElement).find('input#field-sitewide-search').val('Gold Prices');
+        $(targetElement).find('input#field-sitewide-search').val('CCTV');
       };
     },
 
