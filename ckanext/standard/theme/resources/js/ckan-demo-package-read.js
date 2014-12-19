@@ -12,7 +12,7 @@ ckan.module('demo_tour', function($, _) {
           this.continue_url = "/dataset/organogram?tour";
           steps = this.organogram_steps;
           this.intro.setOption('doneLabel', 'Next Page').oncomplete(function() {
-            window.location.href = $('.resource-list .resource-item a')[0].href;
+            window.location.href = $('.resource-list .resource-item a')[0].href + '?tour';
           });
         }
       }
