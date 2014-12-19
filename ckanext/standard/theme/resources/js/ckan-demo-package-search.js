@@ -12,7 +12,7 @@ ckan.module('demo_tour', function($, _) {
         if (this.options.query == 'salary') {
           steps = this.search_results_steps;
           this.intro.setOption('doneLabel', 'Next Page').oncomplete(function() {
-            window.location.href = $('.dataset-list .dataset-item a')[0].href + '?tour';
+            window.location.href = $('.dataset-list .dataset-item a')[2].href + '?tour';
           });
         // Dataset search page with an empty query (no search)
         } else {
@@ -77,7 +77,8 @@ ckan.module('demo_tour', function($, _) {
       },
       {
         element: $('.dataset-list .dataset-item')[2],
-        intro: "<h3>Search</h3>Let’s take a closer look at the organogram dataset."
+        intro: "<h3>Search</h3>Let’s take a closer look at the organogram dataset.",
+        position: 'top'
       }
     ]
   };
