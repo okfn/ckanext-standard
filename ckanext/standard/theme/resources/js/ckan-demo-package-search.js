@@ -12,7 +12,7 @@ ckan.module('demo_tour', function($, _) {
         if (this.options.query == 'salary') {
           steps = this.search_results_steps;
           this.intro.setOption('doneLabel', 'Next Page').oncomplete(function() {
-            window.location.href = $('.dataset-list .dataset-item a')[2].href + '?tour';
+            window.location.href = $('.dataset-list .dataset-item .dataset-heading a')[2].href + '?tour';
           });
         // Dataset search page with an empty query (no search)
         } else {
