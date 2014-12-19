@@ -54,7 +54,7 @@
 
 {% block header_account_notlogged %}
   <li class="tour account-link">
-    <a href="/?tour" id="start_tour_link" data-module="demo_tour" data-module-controller="{{ c.controller }}" data-module-query="{{ c.q }}">{{ _('Restart Tour') }}</a>
+    <a href="/?tour" id="start_tour_link" data-module="demo_tour" data-module-controller="{{ c.controller }}" data-module-query="{{ c.q }}" data-module-package="{{ c.pkg_dict.name }}" data-module-resource="{{ c.resource.name }}">{{ _('Restart Tour') }}</a>
   </li>
 {% endblock %}
 
