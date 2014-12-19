@@ -75,8 +75,11 @@ ckan.module('demo_tour', function($, _) {
     quake_steps: [
       {
         element: $('.resource-view')[0],
-        intro:"<h3>Previews &amp; visualization</h3>",
+        intro:"<h3>Previews &amp; visualization</h3>CKAN is now previewing the location data for earthquakes on a world map. You may access more data by clicking on the pins.",
         position: 'top'
+      },
+      {
+        intro: "<h3>See What you can do with Data</h3>This now completes our data explorer tour, please feel free to explore the site for yourself!"
       }
     ]
   };
