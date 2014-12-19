@@ -76,7 +76,7 @@ ckan.module('demo_tour', function($, _) {
         intro: "<h3>Search</h3>Our search has returned 5 datasets."
       },
       {
-        element: $('.dataset-list .dataset-item')[0],
+        element: $('.dataset-list .dataset-item')[2],
         intro: "<h3>Search</h3>Let’s take a closer look at the organogram dataset."
       }
     ]
