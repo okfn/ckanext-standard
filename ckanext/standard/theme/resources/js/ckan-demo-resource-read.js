@@ -4,6 +4,7 @@ ckan.module('demo_tour', function($, _) {
   return {
     initialize: function() {
       this.intro = introJs();
+      this.continue_url = '';
       var steps = []
 
       if (this.options.controller == 'package') {
@@ -12,7 +13,7 @@ ckan.module('demo_tour', function($, _) {
           this.continue_url = "?tour";
           steps = this.organogram_steps;
           this.intro.setOption('doneLabel', 'Next Page').oncomplete(function() {
-            window.location.href = "/dataset/gold-prices/resource/b9aae52b-b082-4159-b46f-7bb9c158d013";
+            window.location.href = "/dataset/gold-prices/resource/b9aae52b-b082-4159-b46f-7bb9c158d013?tour";
           });
         } else if ($.trim(this.options.resource) == 'CSV' && this.options.package == 'gold-prices') {
           this.continue_url = "?tour";
@@ -36,8 +37,10 @@ ckan.module('demo_tour', function($, _) {
         this.intro.start();
       }
       // Add Continue Tour link for resource
-      var continue_link = $('<li class="account-link"><a href="' + this.continue_url + '">Continue Tour</a></li>');
-      continue_link.insertAfter(this.el.parent());
+      if (this.continue_url != '') {
+        var continue_link = $('<li class="account-link"><a href="' + this.continue_url + '">Continue Tour</a></li>');
+        continue_link.insertAfter(this.el.parent());
+      }
     },
 
     // Intro steps for the resource read page.
@@ -61,6 +64,9 @@ ckan.module('demo_tour', function($, _) {
         element: $('.resource-view')[0],
         intro: "<h3>Previews &amp; visualization</h3>CKAN has automatically produced a graph for the gold price data.",
         position: 'top'
+      },
+      {
+        intro: "<h3>Previews & visualization</h3>CKAN also previews geospatial data and will automatically provide a visualization on a map.<br><br>Let’s view earthquake data."
       }
     ]
   };

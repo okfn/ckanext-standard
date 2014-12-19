@@ -4,6 +4,7 @@ ckan.module('demo_tour', function($, _) {
   return {
     initialize: function() {
       this.intro = introJs();
+      this.continue_url = '';
       var steps = []
 
       if (this.options.controller == 'package') {
@@ -30,8 +31,10 @@ ckan.module('demo_tour', function($, _) {
         this.intro.start();
       }
       // Add Continue Tour link for package read page.
-      var continue_link = $('<li class="account-link"><a href="' + this.continue_url + '">Continue Tour</a></li>');
-      continue_link.insertAfter(this.el.parent());
+      if (this.continue_url != '') {
+        var continue_link = $('<li class="account-link"><a href="' + this.continue_url + '">Continue Tour</a></li>');
+        continue_link.insertAfter(this.el.parent());
+      }
     },
 
     // Intro steps for the package read.

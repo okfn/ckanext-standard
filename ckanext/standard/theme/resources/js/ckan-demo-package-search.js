@@ -4,18 +4,20 @@ ckan.module('demo_tour', function($, _) {
   return {
     initialize: function() {
       this.intro = introJs();
-      this.continue_url = "/dataset?tour";
+      this.continue_url = '';
       var steps = []
 
       if (this.options.controller == 'package') {
         // Dataset search with a query (search conducted)
         if (this.options.query == 'salary') {
+          this.continue_url = "/dataset?tour";
           steps = this.search_results_steps;
           this.intro.setOption('doneLabel', 'Next Page').oncomplete(function() {
             window.location.href = $('.dataset-list .dataset-item .dataset-heading a')[2].href + '?tour';
           });
         // Dataset search page with an empty query (no search)
         } else {
+          this.continue_url = "/dataset?tour";
           steps = this.search_page_steps;
           this.intro.setOption('doneLabel', 'Search').oncomplete(function() {
             window.location.href = '/dataset?q=salary&tour';
@@ -44,8 +46,10 @@ ckan.module('demo_tour', function($, _) {
         this.intro.start();
       }
       // Add Continue Tour link for package search
-      var continue_link = $('<li class="account-link"><a href="' + this.continue_url + '">Continue Tour</a></li>');
-      continue_link.insertAfter(this.el.parent());
+      if (this.continue_link != '') {
+        var continue_link = $('<li class="account-link"><a href="' + this.continue_url + '">Continue Tour</a></li>');
+        continue_link.insertAfter(this.el.parent());
+      }
     },
 
     // Intro steps for the home page.
