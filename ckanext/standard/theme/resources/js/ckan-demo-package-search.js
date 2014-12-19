@@ -5,12 +5,21 @@ ckan.module('demo_tour', function($, _) {
     initialize: function() {
       this.intro = introJs();
       var steps = []
-      // Dataset search page steps
+
       if (this.options.controller == 'package') {
-        steps = this.search_results_steps;
-        this.intro.setOption('doneLabel', 'Search').oncomplete(function() {
-          window.location.href = '/dataset?q=salary';
-        });
+        // Dataset search with a query (search conducted)
+        if (this.options.query == 'salary') {
+          steps = this.search_results_steps;
+          this.intro.setOption('doneLabel', 'Next Page').oncomplete(function() {
+            window.location.href = '/dataset/organogram/?tour';
+          });
+        // Dataset search page with an empty query (no search)
+        } else {
+          steps = this.search_page_steps;
+          this.intro.setOption('doneLabel', 'Search').oncomplete(function() {
+            window.location.href = '/dataset?q=salary&tour';
+          });
+        }
       }
       this.intro.setOptions({
         steps: steps,
@@ -39,7 +48,7 @@ ckan.module('demo_tour', function($, _) {
     },
 
     // Intro steps for the home page.
-    search_results_steps: [
+    search_page_steps: [
       {
         element: $('.filters')[0],
         intro: "<h3>Data Discovery</h3>CKAN organizes data by Organizations, Groups, Tags, Formats etc. to aid data discovery.",
@@ -57,7 +66,17 @@ ckan.module('demo_tour', function($, _) {
       },
       {
         element: $('.search-input')[0],
-        intro: "<h3>Search</h3>Search is one of CKAN’s strongest capabilities and it’s easy to find what you need.<br /><br />For example, let’s search for “salary” datasets."
+        intro: "<h3>Search</h3>Search is one of CKAN’s strongest features, making it easy to find what you need.<br /><br />Let’s search for “salary” datasets."
+      }
+    ],
+    search_results_steps: [
+      {
+        element: $('.search-form h2')[0],
+        intro: "<h3>Search</h3>Our search has returned 5 datasets."
+      },
+      {
+        element: $('.dataset-list .dataset-item')[0],
+        intro: "<h3>Search</h3>Let’s take a closer look at the organogram dataset."
       }
     ]
   };
