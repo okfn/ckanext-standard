@@ -79,7 +79,7 @@ ckan.module('demo_tour', function($, _) {
         position: 'top'
       },
       {
-        intro: "<h3>See What you can do with Data</h3>This now completes our data explorer tour, please feel free to explore the site for yourself!"
+        intro: "<h3>See what you can do with Data</h3>This now completes our data explorer tour, please feel free to explore the site for yourself!"
       }
     ]
   };
