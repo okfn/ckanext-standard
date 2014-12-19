@@ -7,9 +7,9 @@ ckan.module('demo_tour', function($, _) {
       var steps = []
 
       if (this.options.controller == 'package') {
-        // organogram dataset page
-        if (this.options.package == 'organogram') {
-          this.continue_url = "/dataset/organogram?tour";
+        // resource read page
+        if (this.options.resource == 'Organogram') {
+          this.continue_url = "?tour";
           steps = this.organogram_steps;
           this.intro.setOption('doneLabel', 'Next Page').oncomplete(function() {
             window.location.href = $('.resource-list .resource-item a')[0].href;
@@ -29,21 +29,25 @@ ckan.module('demo_tour', function($, _) {
       if (RegExp('tour', 'gi').test(window.location.search)) {
         this.intro.start();
       }
-      // Add Continue Tour link for package read page.
+      // Add Continue Tour link for resource
       var continue_link = $('<li class="account-link"><a href="' + this.continue_url + '">Continue Tour</a></li>');
       continue_link.insertAfter(this.el.parent());
     },
 
-    // Intro steps for the package read.
+    // Intro steps for the resource read page.
     organogram_steps: [
       {
-        element: $('.module .additional-info')[0],
-        intro: "<h3>Dataset Information</h3>Here you’re presented with basic information about the dataset.",
+        element: $('.module .module-content table')[0],
+        intro: "<h3>Dataset Information</h3>CKAN also supports rich meta data about the resource.",
         position: 'top'
       },
       {
-        element: $('.resource-list .resource-item')[0],
-        intro: "<h3>Dataset Information</h3>Now we’ll look at the resource for this dataset."
+        element: $('.actions .btn-primary')[0],
+        intro: "<h3>Dataset Information</h3>You may also download/access the resource by selecting the <em>Go to resource</em> button.",
+        position: 'left'
+      },
+      {
+        intro: "<h3>Previews &amp; Visualization</h3>CKAN also supports automatic previews or visualization of datasets.<br><br>Let’s look at a preview for gold prices, as an example."
       }
     ]
   };

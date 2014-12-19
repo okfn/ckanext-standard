@@ -17,3 +17,8 @@
   </section>
   {{ super() }}
 {% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  {% resource 'standard-theme/js/ckan-demo-resource-read.js' %}
+{% endblock %}
