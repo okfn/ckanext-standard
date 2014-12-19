@@ -8,24 +8,23 @@ ckan.module('demo_tour', function($, _) {
       // Dataset search page steps
       if (this.options.controller == 'package') {
         steps = this.search_results_steps;
-        this.intro.setOption('doneLabel', 'Next Page').oncomplete(function() {
-          window.location.href = '/dataset/cctv-cameras-in-birmingham-uk';
+        this.intro.setOption('doneLabel', 'Search').oncomplete(function() {
+          window.location.href = '/dataset?q=salary';
         });
       }
       this.intro.setOptions({
         steps: steps,
         showBullets: false,
         showStepNumbers: false,
-        scrollToElement: false
       });
-      // this.intro.onchange(this._onchange);
+      this.intro.onchange(this._onchange);
       this._initDemo(steps);
     },
 
     _onchange: function(targetElement) {
       // If we're on the search step, pre-fill the input
-      if (targetElement.id == 'index_search') {
-        $(targetElement).find('input#field-sitewide-search').val('CCTV');
+      if ($(targetElement).hasClass('search-input')) {
+        $(targetElement).find('input.search').val('salary');
       };
     },
 
@@ -35,7 +34,7 @@ ckan.module('demo_tour', function($, _) {
         this.intro.start();
       }
       // Add Continue Tour link for package search
-      var continue_link = $('<li class="account-link"><a href="/dataset?q=CCTV&tour">Continue Tour</a></li>');
+      var continue_link = $('<li class="account-link"><a href="/dataset?tour">Continue Tour</a></li>');
       continue_link.insertAfter(this.el.parent());
     },
 
@@ -45,6 +44,20 @@ ckan.module('demo_tour', function($, _) {
         element: $('.filters')[0],
         intro: "<h3>Data Discovery</h3>CKAN organizes data by Organizations, Groups, Tags, Formats etc. to aid data discovery.",
         position: 'right'
+      },
+      {
+        element: $('.filters')[0],
+        intro: "<h3>Data Discovery</h3>CKAN’s faceted search categories make it easy to discover data.",
+        position: 'right'
+      },
+      {
+        element: $('.filters .module')[3],
+        intro: "<h3>Data Discovery</h3>It is also helpful if you are looking for data in a particular format.",
+        position: 'right'
+      },
+      {
+        element: $('.search-input')[0],
+        intro: "<h3>Search</h3>Search is one of CKAN’s strongest capabilities and it’s easy to find what you need.<br /><br />For example, let’s search for “salary” datasets."
       }
     ]
   };
