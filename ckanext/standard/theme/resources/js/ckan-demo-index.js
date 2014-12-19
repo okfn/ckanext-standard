@@ -43,7 +43,8 @@ ckan.module('demo_tour', function($, _) {
     // Intro steps for the home page.
     home_steps: [
       {
-        intro: "<h3>Welcome to the Tour</h3>This demonstration will guide you through CKAN’s powerful features and show you how to get the most out of data."
+        intro: "<h3>Welcome to the Tour</h3>This demonstration will guide you through CKAN’s powerful features and show you how to get the most out of data.",
+        position: 'right'
       },
       {
         element: $('.box-list .data a')[0],
