@@ -2,3 +2,7 @@
 
 {% block bodytag %}{{ super() }} class="read"{% endblock %}
 
+{% block scripts %}
+  {{ super() }}
+  {% resource 'standard-theme/js/ckan-demo-package-read.js' %}
+{% endblock %}

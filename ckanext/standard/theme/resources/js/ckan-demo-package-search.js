@@ -4,6 +4,7 @@ ckan.module('demo_tour', function($, _) {
   return {
     initialize: function() {
       this.intro = introJs();
+      this.continue_url = "/dataset?tour";
       var steps = []
 
       if (this.options.controller == 'package') {
@@ -43,7 +44,7 @@ ckan.module('demo_tour', function($, _) {
         this.intro.start();
       }
       // Add Continue Tour link for package search
-      var continue_link = $('<li class="account-link"><a href="/dataset?tour">Continue Tour</a></li>');
+      var continue_link = $('<li class="account-link"><a href="' + this.continue_url + '">Continue Tour</a></li>');
       continue_link.insertAfter(this.el.parent());
     },
 
