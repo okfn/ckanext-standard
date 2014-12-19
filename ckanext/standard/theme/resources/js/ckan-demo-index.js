@@ -8,13 +8,14 @@ ckan.module('demo_tour', function($, _) {
       // Index page steps
       if (this.options.controller == 'home') {
         steps = this.home_steps;
-        this.intro.setOption('doneLabel', 'Search').oncomplete(function() {
-          window.location.href = '/dataset?q=CCTV&tour';
+        this.intro.setOption('doneLabel', 'Next Page').oncomplete(function() {
+          window.location.href = '/dataset?tour';
         });
-        this.intro.setOption('showStepNumbers', false);
       }
       this.intro.setOptions({
-        steps: steps
+        steps: steps,
+        showBullets: false,
+        showStepNumbers: false
       });
       this.intro.onchange(this._onchange);
       this._initDemo(steps);
@@ -45,8 +46,8 @@ ckan.module('demo_tour', function($, _) {
         intro: "<h3>Welcome to the Tour</h3>This demonstration will guide you through CKAN’s powerful features and show you how to get the most out of data."
       },
       {
-        element: $('.site-search .search-input')[0],
-        intro: "Type a thing and do a search!"
+        element: $('.box-list .data a')[0],
+        intro: "<h3>Dataset Discovery</h3>Let's start by browsing the CKAN data hub and discovering some datasets."
       }
     ]
   };

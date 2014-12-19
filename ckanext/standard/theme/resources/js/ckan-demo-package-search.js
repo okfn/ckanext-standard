@@ -8,14 +8,15 @@ ckan.module('demo_tour', function($, _) {
       // Dataset search page steps
       if (this.options.controller == 'package') {
         steps = this.search_results_steps;
-        this.intro.setOption('doneLabel', 'Next page').oncomplete(function() {
+        this.intro.setOption('doneLabel', 'Next Page').oncomplete(function() {
           window.location.href = '/dataset/cctv-cameras-in-birmingham-uk';
         });
-        this.intro.setOption('showStepNumbers', false);
-        this.intro.setOption('showBullets', false);
       }
       this.intro.setOptions({
-        steps: steps
+        steps: steps,
+        showBullets: false,
+        showStepNumbers: false,
+        scrollToElement: false
       });
       // this.intro.onchange(this._onchange);
       this._initDemo(steps);
@@ -41,8 +42,9 @@ ckan.module('demo_tour', function($, _) {
     // Intro steps for the home page.
     search_results_steps: [
       {
-        element: $('li.dataset-item a')[0],
-        intro: "Let's checkout Brum's CCTV locations!"
+        element: $('.filters')[0],
+        intro: "<h3>Data Discovery</h3>CKAN organizes data by Organizations, Groups, Tags, Formats etc. to aid data discovery.",
+        position: 'right'
       }
     ]
   };
