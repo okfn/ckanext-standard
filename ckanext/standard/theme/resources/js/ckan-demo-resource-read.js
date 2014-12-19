@@ -19,8 +19,11 @@ ckan.module('demo_tour', function($, _) {
           this.continue_url = "?tour";
           steps = this.gold_steps;
           this.intro.setOption('doneLabel', 'Next Page').oncomplete(function() {
-            window.location.href = "/dataset/gold-prices/resource/b9aae52b-b082-4159-b46f-7bb9c158d013";
+            window.location.href = "/dataset/earthquake-info/resource/6960cbf6-770f-40b0-9eec-31d4dfc27f08?tour";
           });
+        } else if ($.trim(this.options.resource) == 'Earthquake' && this.options.package == 'earthquake-info') {
+          this.continue_url = "?tour";
+          steps = this.quake_steps;
         }
       }
       this.intro.setOptions({
@@ -66,7 +69,14 @@ ckan.module('demo_tour', function($, _) {
         position: 'top'
       },
       {
-        intro: "<h3>Previews & visualization</h3>CKAN also previews geospatial data and will automatically provide a visualization on a map.<br><br>Let’s view earthquake data."
+        intro: "<h3>Previews &ampl visualization</h3>CKAN also previews geospatial data and will automatically provide a visualization on a map.<br><br>Let’s view earthquake data."
+      }
+    ],
+    quake_steps: [
+      {
+        element: $('.resource-view')[0],
+        intro:"<h3>Previews &amp; visualization</h3>",
+        position: 'top'
       }
     ]
   };
