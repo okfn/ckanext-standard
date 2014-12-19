@@ -12,7 +12,13 @@ ckan.module('demo_tour', function($, _) {
           this.continue_url = "?tour";
           steps = this.organogram_steps;
           this.intro.setOption('doneLabel', 'Next Page').oncomplete(function() {
-            window.location.href = $('.resource-list .resource-item a')[0].href;
+            window.location.href = "/dataset/gold-prices/resource/b9aae52b-b082-4159-b46f-7bb9c158d013";
+          });
+        } else if ($.trim(this.options.resource) == 'CSV' && this.options.package == 'gold-prices') {
+          this.continue_url = "?tour";
+          steps = this.gold_steps;
+          this.intro.setOption('doneLabel', 'Next Page').oncomplete(function() {
+            window.location.href = "/dataset/gold-prices/resource/b9aae52b-b082-4159-b46f-7bb9c158d013";
           });
         }
       }
@@ -48,6 +54,13 @@ ckan.module('demo_tour', function($, _) {
       },
       {
         intro: "<h3>Previews &amp; Visualization</h3>CKAN also supports automatic previews or visualization of datasets.<br><br>Let’s look at a preview for gold prices, as an example."
+      }
+    ],
+    gold_steps: [
+      {
+        element: $('.resource-view')[0],
+        intro: "<h3>Previews &amp; visualization</h3>CKAN has automatically produced a graph for the gold price data.",
+        position: 'top'
       }
     ]
   };
