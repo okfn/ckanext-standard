@@ -69,7 +69,7 @@ ckan.module('demo_tour', function($, _) {
         position: 'top'
       },
       {
-        intro: "<h3>Previews &ampl visualization</h3>CKAN also previews geospatial data and will automatically provide a visualization on a map.<br><br>Let’s view earthquake data."
+        intro: "<h3>Previews &amp; visualization</h3>CKAN also previews geospatial data and will automatically provide a visualization on a map.<br><br>Let’s view earthquake data."
       }
     ],
     quake_steps: [
