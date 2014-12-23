@@ -582,10 +582,13 @@ a.tag:hover {
 .masthead .content {
   position: static;
 }
-.masthead .content .navigation {
+.masthead .nav-collapse {
+  padding-top: 0;
+}
+.masthead .navigation {
   margin-right: 0;
 }
-.masthead .content .nav {
+.masthead .navigation .nav {
   display: table;
   width: 100%;
   table-layout: fixed;
@@ -596,17 +599,21 @@ a.tag:hover {
   margin-bottom: 15px;
   box-shadow: 2px 1px 1px 0px rgba(50, 50, 50, 0.17);
 }
-.masthead .content .nav:before,
-.masthead .content .nav:after {
+.masthead .navigation .nav:before,
+.masthead .navigation .nav:after {
   display: none;
 }
-.masthead .content .nav li {
-  display: table-cell;
+.masthead .navigation .nav li {
   float: none;
-  width: 2%;
-  text-align: center;
 }
-.masthead .content .nav li a {
+@media (min-width: 980px) {
+  .masthead .navigation .nav li {
+    display: table-cell;
+    width: 2%;
+    text-align: center;
+  }
+}
+.masthead .navigation .nav li a {
   border-radius: 0;
   margin: 0;
   border-right: solid 1px #3d75ba;
@@ -615,8 +622,9 @@ a.tag:hover {
   font-size: 16px;
   padding-top: 0;
   padding-bottom: 0;
+  box-shadow: none;
 }
-.masthead .content .nav li a:before {
+.masthead .navigation .nav li a:before {
   content: "\f0f6";
   font-family: 'icomoon';
   speak: none;
@@ -633,29 +641,48 @@ a.tag:hover {
   position: relative;
   top: 4px;
 }
-.masthead .content .nav li a:hover,
-.masthead .content .nav li a:focus {
+.masthead .navigation .nav li a:hover,
+.masthead .navigation .nav li a:focus {
   background-color: rgba(81, 160, 216, 0.5);
+  box-shadow: none;
 }
-.ie8 .masthead .content .nav li a:hover,
-.ie8 .masthead .content .nav li a:focus {
+.ie8 .masthead .navigation .nav li a:hover,
+.ie8 .masthead .navigation .nav li a:focus {
   background-color: #51a0d8;
 }
-.masthead .content .nav li.active a:hover,
-.masthead .content .nav li.active a:focus {
+.masthead .navigation .nav li.active a:hover,
+.masthead .navigation .nav li.active a:focus {
   background-color: #51a0d8;
 }
-.masthead .content .nav li:nth-of-type(1) a:before {
+.masthead .navigation .nav li:nth-of-type(1) a:before {
   content: "\f015";
 }
-.masthead .content .nav li:nth-of-type(2) a:before {
+.masthead .navigation .nav li:nth-of-type(2) a:before {
   content: "\f0e8";
 }
-.masthead .content .nav li:nth-of-type(3) a:before {
+.masthead .navigation .nav li:nth-of-type(3) a:before {
   content: "\f0f7";
 }
-.masthead .content .nav li:last-of-type a {
+.masthead .navigation .nav li:last-of-type a {
   border: none;
+}
+.masthead .btn-navbar,
+.masthead .btn-navbar:hover,
+.masthead .btn-navbar:focus,
+.masthead .btn-navbar:active,
+.masthead .btn-navbar.active,
+.masthead .btn-navbar.disabled,
+.masthead .btn-navbar[disabled] {
+  background-color: #3769a7;
+}
+.masthead .btn-navbar .icon-bar,
+.masthead .btn-navbar:hover .icon-bar,
+.masthead .btn-navbar:focus .icon-bar,
+.masthead .btn-navbar:active .icon-bar,
+.masthead .btn-navbar.active .icon-bar,
+.masthead .btn-navbar.disabled .icon-bar,
+.masthead .btn-navbar[disabled] .icon-bar {
+  box-shadow: none;
 }
 #content > .flash-messages,
 #content > .toolbar {

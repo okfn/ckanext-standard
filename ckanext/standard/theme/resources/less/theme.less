@@ -475,11 +475,15 @@ a.tag {
   
   .content {
     position:static;
+  }
+  
+  .nav-collapse {
+    padding-top: 0;
+  }
     
-    .navigation {
-      margin-right: 0;
-     }
-    
+  .navigation {
+    margin-right: 0;
+  
     .nav {
       display: table;
       width: 100%;
@@ -497,10 +501,13 @@ a.tag {
       }
       
       li {
-        display: table-cell;
         float:none;
-        width: 2%;
-        text-align:center;
+        
+        @media (min-width: 980px) {
+          display: table-cell;
+          width: 2%;
+          text-align:center;
+        }
          
         a {
           border-radius:0;
@@ -511,6 +518,7 @@ a.tag {
           font-size:16px;
           padding-top:0;
           padding-bottom:0;
+          box-shadow:none;
           
           &:before {
             content: "\f0f6";
@@ -524,6 +532,7 @@ a.tag {
           &:hover,
           &:focus {
             background-color: fade(@lightblue, 50%);
+            box-shadow:none;
             
             .ie8 & {
               background-color:@lightblue;
@@ -552,6 +561,20 @@ a.tag {
           border:none;
         }
       }
+    }
+  }
+  
+  .btn-navbar,
+  .btn-navbar:hover,
+  .btn-navbar:focus,
+  .btn-navbar:active,
+  .btn-navbar.active,
+  .btn-navbar.disabled,
+  .btn-navbar[disabled] {
+    background-color: darken(@darkblue, 5%);
+    
+    .icon-bar {
+      box-shadow:none;
     }
   }
 }
