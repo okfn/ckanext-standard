@@ -1067,6 +1067,9 @@ a.tag:hover {
   z-index: -1;
   border-bottom: solid 1px #cccccc;
 }
+.row .page-header:before {
+  left: -21px;
+}
 .no-nav .page-header:before {
   left: -5000px;
 }
