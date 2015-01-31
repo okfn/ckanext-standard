@@ -188,6 +188,14 @@ section.grey.horizontal {
   margin: 0 0 30px 30px;
   width: 293px;
 }
+@media (max-width: 480px) {
+  .box-list li {
+    float: none;
+    width: 100%;
+    margin-top: 1px;
+    margin-bottom: 0;
+  }
+}
 .box-list li a {
   display: table-cell;
   border-right: solid 13px #51a0d8;
@@ -217,6 +225,11 @@ section.grey.horizontal {
 }
 .box-list li a:hover h3 {
   color: #2193e4;
+}
+@media (max-width: 480px) {
+  .box-list li a {
+    border-radius: 0;
+  }
 }
 .ie8 .box-list li a {
   background-image: url(../img/box-icons-small.png);
@@ -542,6 +555,11 @@ a.tag:hover {
   color: #fff;
   opacity: 0.9;
 }
+@media (max-width: 767px) {
+  .account-masthead .account > ul li a {
+    font-size: 11px;
+  }
+}
 .account-masthead .account > ul li i {
   display: none;
 }
@@ -569,6 +587,19 @@ a.tag:hover {
 }
 .account-masthead .logo .title {
   font-weight: bold;
+}
+@media (max-width: 480px) {
+  .account-masthead .logo .title,
+  .account-masthead .logo .description {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
 }
 .account-masthead .logo .divider {
   display: none;
@@ -1327,6 +1358,21 @@ a.tag:hover {
 .site-footer .repo-info {
   text-align: right;
 }
+@media (max-width: 767px) {
+  .site-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+  .site-footer .lang-select label {
+    display: block;
+    float: none;
+  }
+  .site-footer .attribution {
+    float: none;
+  }
+}
 .homepage .site-search .btn-search,
 .search-form .search-input.search-giant button {
   background-color: #f39823;
@@ -1355,10 +1401,11 @@ a.tag:hover {
   margin-top: 20px;
 }
 .homepage .site-search input {
-  margin: 0 ;
+  box-sizing: border-box;
+  height: 62px;
+  margin: 0;
   padding: 20px 105px 20px 20px;
-  width: 815px;
-  height: 20px;
+  width: 100%;
 }
 .homepage .site-search .btn-search {
   width: 85px;
@@ -1367,4 +1414,16 @@ a.tag:hover {
 }
 .homepage .site-search .btn-search i {
   font-size: 36px;
+}
+@media (max-width: 767px) {
+  .homepage section.horizontal {
+    padding: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+}
+@media (max-width: 480px) {
+  .homepage section.horizontal {
+    padding: 0;
+  }
 }
