@@ -5,15 +5,15 @@
 
 {% set version_class = c.__version__ |replace(".", "-") %}
 
-{% set versionnum = c.__version__ |replace("b", "") %}
+{% set versionnum = c.__version__ |replace("a", "") |replace("b", "") |replace("c", "") %}
 
 {% if versionnum < "2.3" %}
 {% set feature_class = "no-responsive" %}
 {% endif %}
 
-<!--[if IE 7]> <html lang="{{ lang }}" class="ie ie7 no-responsive"> <![endif]-->
-<!--[if IE 8]> <html lang="{{ lang }}" class="ie ie8 no-responsive"> <![endif]-->
-<!--[if IE 9]> <html lang="{{ lang }}" class="ie9 {{ feature_class }}"> <![endif]-->
+<!--[if IE 7]> <html lang="{{ lang }}" class="ie ie7 version-{{ version_class }} no-responsive"> <![endif]-->
+<!--[if IE 8]> <html lang="{{ lang }}" class="ie ie8 version-{{ version_class }} no-responsive"> <![endif]-->
+<!--[if IE 9]> <html lang="{{ lang }}" class="ie9 version-{{ version_class }} {{ feature_class }}"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="{{ lang }}" class="version-{{ version_class }} {{ feature_class }} "> <!--<![endif]-->
 {%- endblock -%}
 
