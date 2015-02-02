@@ -2,6 +2,7 @@
 
 {% block search_facets %}
   {% if facets %}
+    <a class="show-filters btn">{{ _('Filter Results') }}</a>
     <p class="filter-list">
       {% for field in facets.fields %}
         <em>{{ _('Filtered by') }} </em>
