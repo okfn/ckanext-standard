@@ -938,6 +938,7 @@ a.tag:hover {
 }
 .no-responsive [role="main"] .secondary .module-content {
   padding-left: 0;
+  padding-right: 20px;
 }
 [role="main"] .secondary .nav li {
   padding-left: 29px;
@@ -980,16 +981,15 @@ a.tag:hover {
   width: 10px;
   border-radius: 3px 0 0 3px;
 }
-[role="main"] .secondary .module-content {
-  padding-left: 0;
-  padding-right: 20px;
-}
 [role="main"] .secondary .module-footer {
   border-top: none;
 }
 [role="main"] .secondary .module .read-more {
   color: inherit;
   font-size: 12px;
+}
+[role="main"] .secondary .context-info .image img {
+  display: inline-block;
 }
 /* dataset form */
 .stages {
