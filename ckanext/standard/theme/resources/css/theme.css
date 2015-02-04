@@ -915,6 +915,43 @@ a.tag:hover {
   border-top: none;
   font-size: 15px;
   padding: 7px 2px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (min-width: 768px) {
+  [role="main"] .secondary .module-heading {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.no-responsive [role="main"] .secondary .module-heading {
+  padding-left: 0;
+  padding-right: 0;
+}
+[role="main"] .secondary .module-content {
+  padding: 0 20px;
+}
+@media (min-width: 768px) {
+  [role="main"] .secondary .module-content {
+    padding-left: 0;
+  }
+}
+.no-responsive [role="main"] .secondary .module-content {
+  padding-left: 0;
+}
+[role="main"] .secondary .nav li {
+  padding-left: 29px;
+  padding-right: 29px;
+}
+@media (min-width: 768px) {
+  [role="main"] .secondary .nav li {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+}
+.no-responsive [role="main"] .secondary .nav li {
+  padding-left: 9px;
+  padding-right: 9px;
 }
 [role="main"] .secondary .nav-simple > li,
 [role="main"] .secondary .nav-aside > li {
@@ -1363,18 +1400,6 @@ a.tag:hover {
   border-top: 1px solid #e3e3e3;
   border-bottom: none;
   padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-@media (min-width: 768px) {
-  .read [role="main"] .secondary .module-heading {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-.no-responsive .read [role="main"] .secondary .module-heading {
-  padding-left: 0;
-  padding-right: 0;
 }
 .read [role="main"] .secondary .module-content {
   padding: 0 20px;
@@ -1386,20 +1411,6 @@ a.tag:hover {
 }
 .no-responsive .read [role="main"] .secondary .module-content {
   padding-left: 0;
-}
-.read [role="main"] .secondary .nav li {
-  padding-left: 29px;
-  padding-right: 29px;
-}
-@media (min-width: 768px) {
-  .read [role="main"] .secondary .nav li {
-    padding-left: 9px;
-    padding-right: 9px;
-  }
-}
-.no-responsive .read [role="main"] .secondary .nav li {
-  padding-left: 9px;
-  padding-right: 9px;
 }
 .read [role="main"] .secondary .org .module {
   margin-bottom: 0;
@@ -1422,8 +1433,22 @@ a.tag:hover {
 }
 /* Resource */
 .resource-read .actions {
+  float: none;
+}
+@media (min-width: 768px) {
+  .resource-read .actions {
+    float: right;
+    top: -70px;
+    right: -25px;
+  }
+}
+.no-responsive .resource-read .actions {
+  float: fight;
   top: -70px;
   right: -25px;
+}
+.resource-read .actions ul {
+  margin-left: 0;
 }
 .site-footer {
   color: #878787;
