@@ -997,11 +997,19 @@ a.tag:hover {
   top: 30px;
   left: -10px;
   margin: 0;
+  display: none;
+}
+@media (min-width: 768px) {
+  .stages {
+    display: block;
+  }
+}
+.no-responsive .stages {
+  display: block;
 }
 .stages li,
 .stages li.complete {
   float: none;
-  width: 245px;
   font-size: 16px;
   padding: 0;
   background-color: #878787;
@@ -1009,6 +1017,22 @@ a.tag:hover {
   border-radius: 3px 0 0 3px;
   box-shadow: 2px 1px 1px 0px rgba(50, 50, 50, 0.17);
   margin-bottom: 1px;
+}
+@media (min-width: 768px) and (max-width: 979px) {
+  .stages li,
+  .stages li.complete {
+    width: 176px;
+  }
+}
+@media (min-width: 980px) {
+  .stages li,
+  .stages li.complete {
+    width: 230px;
+  }
+}
+.no-responsive .stages li,
+.no-responsive .stages li.complete {
+  width: 245px;
 }
 .stages li:before,
 .stages li.complete:before {
@@ -1032,6 +1056,13 @@ a.tag:hover {
   background-repeat: no-repeat;
   background-position: 5px -141px;
 }
+@media (min-width: 768px) and (max-width: 979px) {
+  .stages li .highlight,
+  .stages li.complete .highlight {
+    padding-left: 10px;
+    background-image: none;
+  }
+}
 .ie8 .stages li .highlight,
 .ie8 .stages li.complete .highlight {
   background-image: url(../img/add-icons-small.png);
@@ -1046,6 +1077,12 @@ a.tag:hover {
   background-size: 51px auto;
   background-repeat: no-repeat;
   background-position: 5px -41px;
+}
+@media (min-width: 768px) and (max-width: 979px) {
+  .stages li.first .highlight,
+  .stages li.complete.first .highlight {
+    background-image: none;
+  }
 }
 .ie8 .stages li.first .highlight,
 .ie8 .stages li.complete.first .highlight {
@@ -1073,6 +1110,14 @@ a.tag:hover {
   background-size: 51px auto;
   background-repeat: no-repeat;
   background-position: 5px -91px;
+}
+@media (min-width: 768px) and (max-width: 979px) {
+  .stages li.active .highlight,
+  .stages li.complete.active .highlight,
+  .stages li.complete .highlight,
+  .stages li.complete.complete .highlight {
+    background-image: none;
+  }
 }
 .ie8 .stages li.active .highlight,
 .ie8 .stages li.complete.active .highlight,

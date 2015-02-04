@@ -939,11 +939,18 @@ a.tag {
   top:30px;
   left:-10px;
   margin:0;
+  display:none;
+  
+  @media (min-width: 768px) {
+    display:block;
+  }
+  .no-responsive & {
+    display:block;
+  }
   
   li,
   li.complete {
     float:none;
-    width:245px;
     font-size:16px;
     padding:0;
     background-color:@text;
@@ -951,6 +958,16 @@ a.tag {
     border-radius:3px 0 0 3px;
     box-shadow: 2px 1px 1px 0px rgba(50, 50, 50, 0.17);
     margin-bottom:1px;
+    
+    @media (min-width: 768px) and (max-width: 979px) {
+      width:176px;
+    }
+    @media (min-width: 980px) {
+      width:230px;
+    }
+    .no-responsive & {
+      width:245px;
+    }
     
     &:before {
       display:none;
@@ -973,6 +990,11 @@ a.tag {
       background-repeat:no-repeat;
       background-position:5px -141px; //second
       
+      @media (min-width: 768px) and (max-width: 979px) {
+        padding-left:10px;
+        background-image:none;
+      }
+      
       .ie8 & {
         background-image:url(../img/add-icons-small.png);
       }
@@ -988,6 +1010,10 @@ a.tag {
         background-size:51px auto;
         background-repeat:no-repeat;
         background-position:5px -41px; //first
+        
+        @media (min-width: 768px) and (max-width: 979px) {
+          background-image:none;
+        }
         
         .ie8 & {
           background-image:url(../img/add-icons-small.png);
@@ -1012,6 +1038,10 @@ a.tag {
         background-size:51px auto;
         background-repeat:no-repeat;
         background-position:5px -91px; //second active
+        
+        @media (min-width: 768px) and (max-width: 979px) {
+          background-image:none;
+        }
         
         .ie8 & {
           background-image:url(../img/add-icons-small.png);
